@@ -7,11 +7,24 @@
   --main-light: #eeeeee;
   font-family: "Poppins", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #667aff; 
+}
 * {
   margin: 0;
   padding: 0;
 }
+
 
 .header {
   display: flex;
@@ -23,50 +36,17 @@
   background-color: var(--main-darklg);
 }
 
-.logo > h3 {
+.logo>h3 {
   color: var(--main-light);
 }
 
 .main {
+  width: 2fr;
   overflow: hidden;
-  height: 92vh;
-  display: flex;
-}
-
-.main__left {
-  flex: 0.7;
-  display: flex;
-  flex-direction: column;
-}
-
-.videos__group {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--main-dark);
-}
-
-video {
-  height: 300px;
-  border-radius: 1rem;
-  margin: 0.5rem;
-  width: 400px;
-  object-fit: cover;
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-}
-
-.options {
-  padding: 1rem;
-  display: flex;
-  background-color: var(--main-darklg);
-}
-
-.options__left {
-  display: flex;
+  height: 93vh;
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto; */
 }
 
 .options__right {
@@ -94,12 +74,14 @@ video {
   display: flex;
   flex-direction: column;
   flex: 0.3;
+ 
   background-color: #242f41;
 }
 
 .main__chat_window {
   flex-grow: 1;
   overflow-y: scroll;
+ 
 }
 
 .main__chat_window::-webkit-scrollbar {
@@ -113,7 +95,7 @@ video {
   justify-content: center;
 }
 
-.main__message_container > input {
+.main__message_container>input {
   height: 50px;
   flex: 1;
   font-size: 1rem;
@@ -122,58 +104,82 @@ video {
   border: none;
 }
 
-.messages {
-  display: flex;
-  flex-direction: column;
-  margin: 1.5rem;
-}
-.chat-messages{
+
+
+.chat-messages { 
   overflow-y: scroll;
-  height: 500px;
+  height: 450px;
   scroll-padding-top: 25px;
 }
+
 .message {
   display: flex;
   flex-direction: column;
- 
+  overflow: auto;
+  text-align: left;
+
 }
 
-.message > b {
+.message>b {
   color: #eeeeee;
   display: flex;
   align-items: center;
   text-transform: capitalize;
 }
 
-.message > b > i {
+.message>b>i {
   margin-right: 0.7rem;
   font-size: 1.5rem;
 }
 
-.message > span {
+.message>span {
   background-color: #eeeeee;
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 5px;
 }
 
+/* 
 #video-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
+} */
 
 #showChat {
   display: none;
 }
-.textmsg{
-  background-color: #2f80ec;
-  border-radius: 0 20px 20px 0;
-  padding: 10px;
-  min-width: 100px;
-  width: auto;
-  margin-bottom: 5px;
+
+.from{
+  text-transform: var(--main-dark);
+  text-decoration:underline ;
+ font-style: italic;
+ font-size: smaller;
 }
+.textmsg {
+  background-color: #2f80ec;
+  border-radius: 30px 30px  30px 0 ;
+  padding: 10px;
+  max-width:500px;
+  text-align: left;
+  margin: 5px;
+ 
+}
+.right{
+  text-align: right;
+  background-color: #2f80ec;
+  border-radius: 30px 30px 0 30px ;
+  padding: 10px;
+  max-width:500px;
+ 
+  margin: 5px;
+}
+.text{
+ /* max-width: 425px ; */
+ align-items: center;
+ overflow-wrap: break-word;
+}
+
 .header__back {
   display: none;
   position: absolute;
@@ -181,7 +187,9 @@ video {
   top: 17px;
   left: 28px;
   color: #fff;
-}#toggleDropdown {
+}
+
+#toggleDropdown {
   background-color: #1d2635;
   color: white;
   border: none;
@@ -193,21 +201,32 @@ video {
   position: relative;
 }
 
+.formchat {
+  display: flex;
+  align-content: space-evenly;
+  padding-bottom: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .dropdown-content {
-  
+
   position: absolute;
   background-color: #667aff;
   color: white;
   min-width: 80px;
   z-index: 1;
-  bottom: 100%; /* Position the dropdown above the button */
+  bottom: 100%;
+  /* Position the dropdown above the button */
 }
 
 .dropdown-content ul {
   list-style: none;
   overflow-y: scroll;
   padding: 0;
-  margin: 0; /* Remove default margin to prevent gaps */
+  margin: 0;
+  /* Remove default margin to prevent gaps */
 }
 
 .dropdown-content li {
@@ -220,7 +239,7 @@ video {
   display: none;
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   .main__right {
     display: none;
   }
@@ -237,4 +256,4 @@ video {
   #showChat {
     display: flex;
   }
-}
+} */

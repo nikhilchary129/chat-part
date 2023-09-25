@@ -21,8 +21,10 @@ const url = window.location.href
 const hrefs = new URL(url)
 const room = hrefs.searchParams.get('room')
 const username = hrefs.searchParams.get("username");
+
 socket.emit('joinroom', room, username);
-roomdiv.innerHTML = room
+// console.log(room)
+// roomdiv.innerHTML = room
 socket.emit('newuser', username)
 
 //const userexists=[]
@@ -48,7 +50,7 @@ console.log(form)
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    //console.log(username)
+    console.log(username)
 
     const msg = e.target.elements.msg.value
     console.log(msg)
@@ -60,29 +62,22 @@ form.addEventListener("submit", (e) => {
 
 })
 
-function display(mes, username, time) {
+function display(mes, username, time,side) {
+    const myusername = hrefs.searchParams.get("username");
+    let classname='textmsg'
+    if(username===myusername) {
+      classname='right'
+    } 
     const div = document.createElement('div')
     div.classList.add('message');
-    div.innerHTML = `<div class="textmsg"> <p class="from">
+    div.innerHTML = `<div class=${classname}> <p class="from">
     ${username} ${time}
  </p>   <p class="text">
        ${mes}
     </p> </div> `
-
+  
     document.querySelector('.chat-messages').appendChild(div)
-
+   
     chat.scrollTop = chat.scrollHeight
 
 }
-
-const localvideo=document.getElementsByClassName('localvideo')[0]
-const remotevideo=document.getElementsByClassName('remotevideo')[0]
-// web rtc and simple -peer
-
-let localStream;
-//new peer connection
-const peerConnection = new RTCPeerConnection();
-localStream= navigator.mediaDevices.getUserMedia({
-    video:true,
-    audio:true
-})
