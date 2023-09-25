@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require('cors');
 const server = http.createServer(app);
 const format = require("./utilites/formatmsg")
@@ -14,9 +14,11 @@ app.set("view engine", "ejs");
 // Initialize Socket.IO and attach it to the HTTP server with CORS configuration
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://localhost:8080'], // Replace with the actual frontend URL
+        origin: ['http://your-deployed-frontend-url.com'],
+        methods: ['GET', 'POST'], // Add any additional HTTP methods you need
     },
 });
+
 
 // Middleware for parsing JSON and URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
