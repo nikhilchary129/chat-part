@@ -1,4 +1,6 @@
 Node.js Chat App
+
+
 This is a real-time chat application built with Node.js, Express, and Socket.IO. It allows multiple users to join and chat simultaneously in a simple and user-friendly interface.
 
 Features
@@ -8,7 +10,7 @@ Clean and intuitive user interface.
 Getting Started
 To run this chat app locally, follow these simple steps:
 
-Clone the repository: git clone https://github.com/yourusername/nodejs-chat-app.git
+Clone the repository: git clone https://github.com/nikhilchary129/chat-part
 
 Install dependencies: npm install
 
